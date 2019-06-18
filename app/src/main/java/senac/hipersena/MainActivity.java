@@ -16,8 +16,8 @@ import senac.hipersena.models.Sorte;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText jogadas = findViewById(R.id.txtJogadas);
-    EditText casas = findViewById(R.id.txtCasas);
+    EditText jogadas;
+    EditText casas;
     public static Sorte sorte;
 
     @Override
@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        jogadas = findViewById(R.id.txtJogadas);
+        casas = findViewById(R.id.txtCasas);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

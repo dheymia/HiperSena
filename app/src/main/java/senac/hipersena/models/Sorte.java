@@ -19,14 +19,14 @@ public class Sorte {
     }
 
     private void validarApostas() throws Exception {
-        if (!validarJogadas()){
+        if (!validarJogadas()) {
             throw new Exception("Escolha entre 1 a 100 jogadas!");
-        } else if (!validarCasas()){
+        } else if (!validarCasas()) {
             throw new Exception("Escolha entre 6 a 15 casas!");
         }
     }
 
-    public List<Aposta> gerarApostas()  {
+    public List<Aposta> gerarApostas() {
 
         validarJogadas();
 
@@ -39,8 +39,8 @@ public class Sorte {
             Set<Integer> numeros = new TreeSet<>();
 
             for (int j = 1; j <= casas; j++) {
-                while (true){
-                    if (numeros.add(random.nextInt(59) + 1)){
+                while (true) {
+                    if (numeros.add(random.nextInt(59) + 1)) {
                         break;
                     }
                 }
@@ -52,19 +52,32 @@ public class Sorte {
         return apostas;
     }
 
-    private boolean validarJogadas(){
-        if (jogadas < 1 || jogadas > 100){
+    private boolean validarJogadas() {
+        if (jogadas < 1 || jogadas > 100) {
             return false;
         } else {
             return true;
         }
     }
 
-    private boolean validarCasas(){
-        if (casas < 6 || casas > 15){
+    private boolean validarCasas() {
+        if (casas < 6 || casas > 15) {
             return false;
         } else {
             return true;
         }
     }
+
+    public int getJogadas() {
+        return jogadas;
+    }
+
+    public int getCasas() {
+        return casas;
+    }
+
+    public List<Aposta> getApostas() {
+        return apostas;
+    }
+
 }
