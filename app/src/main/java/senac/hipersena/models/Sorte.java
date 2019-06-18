@@ -12,18 +12,23 @@ public class Sorte {
     private int casas;
     private List<Aposta> apostas;
 
-    public Sorte(int jogadas, int casas) {
+    public Sorte(int jogadas, int casas) throws Exception {
         this.jogadas = jogadas;
         this.casas = casas;
+        validarApostas();
     }
 
-    public List<Aposta> gerarApostas() throws Exception {
-
+    private void validarApostas() throws Exception {
         if (!validarJogadas()){
             throw new Exception("Escolha entre 1 a 100 jogadas!");
         } else if (!validarCasas()){
             throw new Exception("Escolha entre 6 a 15 casas!");
         }
+    }
+
+    public List<Aposta> gerarApostas()  {
+
+        validarJogadas();
 
         apostas = new ArrayList<>();
 

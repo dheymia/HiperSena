@@ -6,11 +6,19 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+
+import senac.hipersena.models.Sorte;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText jogadas = findViewById(R.id.txtJogadas);
+    EditText casas = findViewById(R.id.txtCasas);
+    public static Sorte sorte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +31,21 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                try {
+                    int jogadasInt = Integer.parseInt(jogadas.getText().toString());
+                    int casasInt = Integer.parseInt(casas.getText().toString());
 
-                Intent telaJogadas = new Intent(getBaseContext(), Jogadas.class);
-                telaJogadas.putExtra("conteudo", 45641);
-                startActivity(telaJogadas);
+                    sorte = new Sorte(jogadasInt, casasInt);
+
+                    Intent telaJogadas = new Intent(getBaseContext(), Jogadas.class);
+                    telaJogadas.putExtra("jogadas", jogadasInt);
+                    telaJogadas.putExtra("casas", casasInt);
+                    startActivity(telaJogadas);
+                } catch (Exception ex) {
+                    Log.e("Onclick Gerar Apostas", ex.getMessage());
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
             }
         });
     }
