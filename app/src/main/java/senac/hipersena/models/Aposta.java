@@ -8,4 +8,10 @@ public class Aposta {
         this.conteudo = conteudo;
     }
 
+    @Override
+    public String toString() {
+        return "Aposta{" +
+                "conteudo='" + conteudo + '\'' +
+                '}';
+    }
 }
