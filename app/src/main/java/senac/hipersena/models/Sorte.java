@@ -15,7 +15,6 @@ public class Sorte {
     public Sorte(int jogadas, int casas) throws Exception {
         this.jogadas = jogadas;
         this.casas = casas;
-        validarApostas();
     }
 
     private void validarApostas() throws Exception {
@@ -26,9 +25,9 @@ public class Sorte {
         }
     }
 
-    public List<Aposta> gerarApostas() {
+    public List<Aposta> gerarApostas() throws Exception {
 
-        validarJogadas();
+        validarApostas();
 
         apostas = new ArrayList<>();
 

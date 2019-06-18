@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     int casasInt = Integer.parseInt(casas.getText().toString());
 
                     sorte = new Sorte(jogadasInt, casasInt);
+                    sorte.gerarApostas();
 
                     Intent telaJogadas = new Intent(getBaseContext(), Jogadas.class);
                     telaJogadas.putExtra("jogadas", jogadasInt);
