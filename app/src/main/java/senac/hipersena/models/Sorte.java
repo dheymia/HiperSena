@@ -45,7 +45,7 @@ public class Sorte {
                 }
             }
 
-            apostas.add(new Aposta(numeros.toString()));
+            apostas.add(new Aposta("Jogada Nº " + i + " - " + numeros.toString()));
         }
 
         return apostas;

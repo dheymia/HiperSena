@@ -8,6 +8,10 @@ public class Aposta {
         this.conteudo = conteudo;
     }
 
+    public String getConteudo() {
+        return conteudo;
+    }
+
     @Override
     public String toString() {
         return "Aposta{" +

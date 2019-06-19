@@ -8,8 +8,8 @@
     tools:context=".Jogadas"
     tools:showIn="@layout/activity_jogadas">
 
-    <TextView
-        android:id="@+id/txtListaJogadas"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ListaJogadas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </android.support.v4.widget.NestedScrollView>
