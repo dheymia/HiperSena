@@ -75,4 +75,18 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onResume() {
+        try {
+            if (sorte != null) {
+                jogadas.setText(String.valueOf(sorte.getJogadas()));
+                casas.setText(String.valueOf(sorte.getCasas()));
+            }
+        } catch (Exception ex){
+            Log.e("onResume", ex.toString());
+        }
+
+        super.onResume();
+    }
 }
